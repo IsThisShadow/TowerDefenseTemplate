@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2k4n8lprc5q8"]
+
+[ext_resource type="Script" path="res://Health.gd" id="1_0f1fr"]
+[ext_resource type="Script" path="res://Gold.gd" id="2_8kufx"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 411.0
+offset_top = 13.0
+offset_right = 968.0
+offset_bottom = 1235.0
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel"]
+offset_left = 46.0
+offset_top = 22.0
+offset_right = 500.0
+offset_bottom = 1153.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="Health" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health:
+"
+script = ExtResource("1_0f1fr")
+
+[node name="Gold" type="Label" parent="."]
+offset_left = 132.0
+offset_top = -1.0
+offset_right = 173.0
+offset_bottom = 22.0
+text = "Gold:"
+script = ExtResource("2_8kufx")

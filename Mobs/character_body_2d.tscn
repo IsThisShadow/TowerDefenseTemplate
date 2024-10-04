@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dfkksa3jwqpu2"]
+
+[node name="Solider A" type="CharacterBody2D"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://0812gvlu7etw"]
+
+[ext_resource type="PackedScene" uid="uid://cfgmu712xec0o" path="res://Scenes/Bat.tscn" id="1_i4inf"]
+
+[sub_resource type="Curve2D" id="Curve2D_p2ie5"]
+_data = {
+"points": PackedVector2Array(-22.3586, 16.3518, 22.3586, -16.3518, 40, 50, 0, 0, 0, 0, 83, 90, 0, 0, 0, 0, 128, 116, 0, 0, 0, 0, 202, 112, 0, 0, 0, 0, 242, 112, 0, 0, 0, 0, 258, 133, 0, 0, 0, 0, 257, 188, 0, 0, 0, 0, 272, 208, 0, 0, 0, 0, 390, 206, 0, 0, 0, 0, 438, 165, 0, 0, 0, 0, 467, 121, 0, 0, 0, 0, 464, 75, 0, 0, 0, 0, 480, 45, 0, 0, 0, 0, 523, 46, 0, 0, 0, 0, 549, 52, 0, 0, 0, 0, 562, 73, 0, 0, 0, 0, 561, 126, 0, 0, 0, 0, 579, 159, 0, 0, 0, 0, 593, 172, 0, 0, 0, 0, 570, 192, 0, 0, 0, 0, 516, 191, 0, 0, 0, 0, 477, 196, 0, 0, 0, 0, 476, 233, 0, 0, 0, 0, 481, 278, 0, 0, 0, 0, 467, 290, 0, 0, 0, 0, 201, 287, 0, 0, 0, 0, 187, 277, 0, 0, 0, 0, 192, 220, 0, 0, 0, 0, 191, 192, 0, 0, 0, 0, 167, 190, 0, 0, 0, 0, 96, 192, 0, 0, 0, 0, 66, 195, 0, 0, 0, 0, 61, 226, 0, 0, 0, 0, 64, 340, 0, 0, 0, 0, 71, 353, 0, 0, 0, 0, 403, 352, 0, 0, 0, 0, 657, 353)
+}
+point_count = 37
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_p2ie5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(40, 50)
+rotation = -0.631453
+loop = false
+
+[node name="Bat A" parent="PathFollow2D" instance=ExtResource("1_i4inf")]
+speed = 100

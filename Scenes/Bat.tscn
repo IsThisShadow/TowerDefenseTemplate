@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://cfgmu712xec0o"]
+
+[ext_resource type="Script" path="res://Scenes/Bat.gd" id="1_frhma"]
+[ext_resource type="Texture2D" uid="uid://cxxstlvgaxlad" path="res://Monsters_Creatures_Fantasy/Flying eye/Flight.png" id="1_kaapt"]
+[ext_resource type="Script" path="res://Scenes/ProgressBar.gd" id="3_f1hq8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13yo0"]
+atlas = ExtResource("1_kaapt")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxolo"]
+atlas = ExtResource("1_kaapt")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vapce"]
+atlas = ExtResource("1_kaapt")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7ko2"]
+atlas = ExtResource("1_kaapt")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4uu1"]
+atlas = ExtResource("1_kaapt")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veajx"]
+atlas = ExtResource("1_kaapt")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8b7n"]
+atlas = ExtResource("1_kaapt")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wdxv"]
+atlas = ExtResource("1_kaapt")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rglh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13yo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxolo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vapce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7ko2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4uu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veajx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8b7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wdxv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_51a34"]
+radius = 15.8114
+
+[node name="Bat" type="CharacterBody2D"]
+script = ExtResource("1_frhma")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1.19209e-07)
+scale = Vector2(0.9, 0.893333)
+sprite_frames = SubResource("SpriteFrames_rglh7")
+autoplay = "default"
+frame_progress = 0.813282
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 1)
+shape = SubResource("CircleShape2D_51a34")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -9.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = -13.0
+script = ExtResource("3_f1hq8")

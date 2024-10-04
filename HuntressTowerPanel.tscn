@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6twtwg82b0hm"]
+
+[ext_resource type="Script" path="res://HuntressTowerPanel.gd" id="1_afm8s"]
+[ext_resource type="Texture2D" uid="uid://b3vuqcopcrkmo" path="res://Towers/Characters/Huntress/Sprites/Idle.png" id="2_v1ytf"]
+
+[node name="HuntressTowerPanel" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_afm8s")
+
+[node name="Idle" type="Sprite2D" parent="."]
+position = Vector2(20, 18)
+texture = ExtResource("2_v1ytf")
+region_enabled = true
+region_rect = Rect2(0, 0, 150, 150)

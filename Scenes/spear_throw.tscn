@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkvpnw4rslf0u"]
+
+[ext_resource type="Script" path="res://SpearThrow.gd" id="1_6th7b"]
+[ext_resource type="Texture2D" uid="uid://c04vfky4pmqwr" path="res://Towers/Characters/Huntress/Sprites/Spear.png" id="2_nw7h2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ijot"]
+radius = 2.5
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmjq1"]
+radius = 3.0
+height = 52.0
+
+[node name="SpearThrow" type="CharacterBody2D"]
+position = Vector2(0, -0.5)
+script = ExtResource("1_6th7b")
+
+[node name="Spear" type="Sprite2D" parent="."]
+texture = ExtResource("2_nw7h2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_7ijot")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_pmjq1")

@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://fty3wj3mqvlo"]
+
+[ext_resource type="Script" path="res://Towers/Characters/Huntress/huntress_tower.gd" id="1_eqs1l"]
+[ext_resource type="Script" path="res://Scenes/ProgressBar.gd" id="2_6nwpv"]
+[ext_resource type="Script" path="res://Towers/Characters/Huntress/CollisionShape2D2.gd" id="2_vcw2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r24fw"]
+size = Vector2(23, 41)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f6itj"]
+load_path = "res://.godot/imported/Idle.png-c1abc0858e22997f5cf921664a57a2e8.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ry2oh"]
+radius = 80.3057
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uqsfg"]
+radius = 20.0
+height = 56.0
+
+[node name="HuntressTower" type="StaticBody2D"]
+script = ExtResource("1_eqs1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r24fw")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(12, 0)
+
+[node name="Idle" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_f6itj")
+region_enabled = true
+region_rect = Rect2(0, 0, 150, 150)
+
+[node name="Tower" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower"]
+shape = SubResource("CircleShape2D_ry2oh")
+script = ExtResource("2_vcw2i")
+
+[node name="TowerDetector" type="Area2D" parent="."]
+position = Vector2(29, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetector"]
+position = Vector2(-29, -1)
+shape = SubResource("CapsuleShape2D_uqsfg")
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[node name="Area" type="Panel" parent="BulletContainer"]
+offset_left = -81.0
+offset_top = -83.0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Upgrade" type="Node" parent="."]
+
+[node name="Upgrade" type="Panel" parent="Upgrade"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Upgrade"]
+offset_left = -13.0
+offset_top = -39.0
+offset_right = 13.0
+offset_bottom = -12.0
+script = ExtResource("2_6nwpv")
+
+[node name="Timer" type="Timer" parent="Upgrade/ProgressBar"]
+autostart = true
+
+[connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
